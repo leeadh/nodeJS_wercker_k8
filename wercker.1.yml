@@ -1,3 +1,4 @@
+
 # The container definition we want to use for developing our apps
 box:
   id: node:latest
@@ -10,24 +11,17 @@ build:
     - script:
         name: A step that executes `npm install`
         code: 
-          npm install
+          npm-install
 
     - script:
         name: echo nodejs information
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
-
-test-docker-image:
-  steps:
-    - name: test docker image
-    - internal/docker-build:
-
-
-
 #Push the docker image with our built and tested application onto Docker Hub
 push-to-dockerhub:
     steps:
+      # Push to public docker repo
       - internal/docker-push:
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
@@ -35,4 +29,3 @@ push-to-dockerhub:
           repository: "leexha/nodejsapp"
           registry: https://index.docker.io/v2/
           cmd: node /pipeline/source/sampleApp.js
-          ports: "3000,3000"
