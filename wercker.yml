@@ -10,6 +10,7 @@ build:
     - npm-install
 
     - script:
+        name: added in shit
         code:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
