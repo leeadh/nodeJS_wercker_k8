@@ -28,7 +28,7 @@ test-docker-image:
         image-name: nodejsapp
     - internal/docker-run:
         image : nodejsapp
-        name : sampleapp
+        name : nodejsapp
 
 
 
@@ -39,7 +39,6 @@ push-to-dockerhub:
       - internal/docker-push:
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
-          tag:  "latest"
+          tag:  "555"
           repository: "leexha/nodejsapp"
           registry: https://index.docker.io/v2/
-          cmd: node /pipeline/source/sampleApp.js
