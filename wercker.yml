@@ -10,7 +10,7 @@ build:
     - script:
         name: A step that executes `npm install`
         code: 
-          npm-install
+          npm install
 
     - script:
         name: echo nodejs information
