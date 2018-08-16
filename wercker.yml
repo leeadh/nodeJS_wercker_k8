@@ -30,3 +30,4 @@ push-to-dockerhub:
           repository: "leexha/nodejsapp"
           registry: https://index.docker.io/v2/
           cmd: node /pipeline/source/sampleApp.js
+          ports: "3000,3000"
