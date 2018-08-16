@@ -1,3 +1,4 @@
+
 # The container definition we want to use for developing our apps
 box:
   id: node:latest
@@ -7,13 +8,10 @@ box:
 # Build definition
 build:
   steps:
-    - npm-install
-
     - script:
-        name: added in shit
-        code:
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
+        name: A step that executes `npm install`
+        code: 
+          npm install
 
 
 test-docker-image:
