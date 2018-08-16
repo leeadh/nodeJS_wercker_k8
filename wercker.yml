@@ -21,21 +21,16 @@ build:
 
 
 
-test-docker-image:
+push-to-dockerhub:
   steps:
     - internal/docker-build:
         dockerfile: Dockerfile
         image-name: nodejsapp
 
-
-#Push the docker image with our built and tested application onto Docker Hub
-push-to-dockerhub:
-    steps:
-      # Push to public docker repo
-      - internal/docker-push:
-          image-name: nodejsapp
-          username: $DOCKER_USERNAME
-          password: $DOCKER_PASSWORD
-          tag:  "777"
-          repository: $DOCKER_USERNAME/nodejsapp
-          registry: https://hub.docker.com
+    - internal/docker-push:
+        image-name: nodejsapp
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        tag:  "777"
+        repository: $DOCKER_USERNAME/nodejsapp
+        registry: https://hub.docker.com
