@@ -32,5 +32,5 @@ push-to-dockerhub:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag:  "777"
-        repository: $DOCKER_USERNAME/nodejsapp
-        registry: https://hub.docker.com
+        repository: "leexha/nodejsapp"
+        registry: https://index.docker.io/v2/
