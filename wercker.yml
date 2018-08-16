@@ -7,6 +7,7 @@ box:
 # Build definition
 build:
   steps:
+  - name: building
     - script:
         name: A step that executes `npm install`
         code: 

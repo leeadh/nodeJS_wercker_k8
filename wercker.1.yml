@@ -22,8 +22,6 @@ test-docker-image:
   steps:
     - name: test docker image
     - internal/docker-build:
-    
-    - internal/docker-run:
 
 
 
