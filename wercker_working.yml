@@ -47,5 +47,9 @@ deploy-to-kuberntes:
           token: $KUBERNETES_TOKEN
           insecure-skip-tls-verify: true
           command: apply -f ./service.yml
-        
+
+      - kubectl:
+          name: get ingress address
+          server: $KUBERNETES_MASTER
+          token: $KUBERNETES_TOKEN          
 

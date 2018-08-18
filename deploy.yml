@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: thirdapp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: index.docker.io/leexha/nodejsapp:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests: 
+            memory: 500Mi
+            cpu: 0.5
+          limits:
+            memory: 500Mi
+            cpu: 0.5
+        imagePullPolicy: Always
+
