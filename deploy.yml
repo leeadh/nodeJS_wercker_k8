@@ -12,7 +12,6 @@ spec:
       containers:
       - name: webapp
         image: index.docker.io/leexha/nodejsapp:${WERCKER_GIT_COMMIT}
-        echo $WERCKER_GIT_COMMIT
         ports:
         - containerPort: 3000
         resources:
