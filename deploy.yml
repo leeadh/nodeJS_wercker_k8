@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: fourthapp
+  name: mynodejsapp
 spec:
   replicas: 2
   template:
