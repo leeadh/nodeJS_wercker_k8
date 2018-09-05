@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mynodejsapp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: leexha/nodejsapp:{$WERCKER_GIT_COMMIT}
+        ports:
+        - containerPort: 3000
+        resources:
+          requests: 
+            memory: 500Mi
+            cpu: 0.5
+          limits:
+            memory: 500Mi
+            cpu: 0.5
+        imagePullPolicy: Always
+
