@@ -1,6 +1,6 @@
 FROM node:latest
 
-# Create app directory
+# Create app directoryy
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
 
