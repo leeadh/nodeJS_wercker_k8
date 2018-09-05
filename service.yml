@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mynodejsapp
 spec:
-  type: LoadBalancer #Exposes the service as a node port
+  type: LoadBalancer #Exposes the service as a node ports
   ports:
   - port: 3000
     protocol: TCP
