@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mynodejsapp
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: index.docker.io/leexha/nodejsapp:${WERCKER_GIT_COMMIT}
+        image: leexha/nodejsapp:latest
         ports:
         - containerPort: 3000
         resources:
