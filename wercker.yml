@@ -1,5 +1,5 @@
 
-# The container definition we want to use for developing our apps
+# The container definition we want to use for developing our appss
 box:
   id: node:latest
   ports:
