@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: thirdapp
+  name: fourthapp
 spec:
   replicas: 2
   template:
