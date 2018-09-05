@@ -34,6 +34,8 @@ push-to-dockerhub:
 #
 deploy-to-kuberntes:
     steps:
+      - bash-template
+      
       - kubectl: 
           name: apply deployment
           server: $KUBERNETES_MASTER
