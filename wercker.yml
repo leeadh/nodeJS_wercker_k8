@@ -26,7 +26,7 @@ push-to-dockerhub:
       - internal/docker-push:
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
-          tag: ${WERCKER_GIT_COMMIT}
+          tag: "latest"
           repository: leexha/nodejsapp
           cmd: node /pipeline/source/sampleApp.js
 
