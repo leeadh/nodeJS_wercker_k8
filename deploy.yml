@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: leexha/nodejsapp:latest
+        image: leexha/nodejsapp:{$WERCKER_GIT_COMMIT}
         ports:
         - containerPort: 3000
         resources:
