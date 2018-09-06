@@ -21,12 +21,12 @@ app.post('/', function (req, res) {
   request(url, function (err, response, body) {
     if(err){
       res.render('index', {weather: null, error: 'Error, please try again'});
-      console.log("there is error 1 "+ error);
+      console.log("there is error 1 "+ err);
     } else {
       let weather = JSON.parse(body)
       if(weather.main == undefined){
         res.render('index', {weather: null, error: 'Error, please try again'});
-        console.log("there is error 2 "+ error);
+        console.log("there is error 2 "+ err);
       } else {
         let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
         res.render('index', {weather: weatherText, error: null});
