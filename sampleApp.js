@@ -28,8 +28,12 @@ app.post('/', function (req, res) {
         res.render('index', {weather: null, error: 'Error, please try again'});
         console.log("there is error 2 "+ err);
       } else {
-        let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-        res.render('index', {weather: weatherText, error: null});
+        
+        let weatherText = `It's ${weather.main.temp} fahrenheit in ${weather.name}!`;
+        console.log(weather.weather)
+        console.log(weather.coord)
+        console.log(weather.coord.lon)
+        res.render('index', {weather: weatherText, weatherdata: weather, coordinates: weather.coord, error: null});
       }
     }
   });
