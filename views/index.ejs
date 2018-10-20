@@ -5,9 +5,13 @@
     <title>Test</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <base href= "/">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu8y8QdrbW9uJidR_YIMXvdA2T3gpQQZE&callback=initMap"
+    async defer></script>
+
   </head>
+
   <body>
+    
     <div class="container">
       <fieldset>
         <form action="/" method="post">
@@ -15,13 +19,42 @@
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
         <% if(weather !== null){ %>
-          <p><%= weather %></p>
+          
+          <script>
+            var icon = <%- JSON.stringify(weatherdata.weather[0].icon) %>;
+            document.write('<p><%= weather %></p>')
+            document.write('<img src="http://openweathermap.org/img/w/' + icon + '.png" style="width:70px;height:70px;"></img>');
+          </script>
+
+          
         <% } %>
+
 
         <% if(error !== null){ %>
           <p><%= error %></p>
         <% } %>
+        
       </fieldset>
+      <% if(weather !== null){ %>
+        <script>
+            var map;
+            var coordinates = <%-JSON.stringify(coordinates)%>;
+            console.log(coordinates)
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {"lng": coordinates.lon,"lat": coordinates.lat},
+                zoom: 8
+              });
+            }
+          </script>
+      <% } %>
     </div>
+
+    <div id="map"></div>
+
+    
+
+
+
   </body>
 </html>
