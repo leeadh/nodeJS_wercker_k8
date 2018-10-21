@@ -6,7 +6,7 @@ box:
     - "3000"
 
 # Build definition
-build-SIT:
+build:
   steps:
     - script:
         name: A step that executes `npm install`
@@ -20,7 +20,7 @@ build-SIT:
           echo "npm version $(npm -v) running"
 
 #Push the docker image with our built and tested application onto Docker Hub
-push-to-dockerhub-SIT:
+push-to-dockerhub:
     steps:
       # Push to public docker repo
       - internal/docker-push:
@@ -32,7 +32,7 @@ push-to-dockerhub-SIT:
           cmd: node /pipeline/source/sampleApp.js
 
 #
-deploy-to-kuberntes-SIT:
+deploy-to-kuberntes:
     steps:
       - bash-template
       
@@ -41,13 +41,13 @@ deploy-to-kuberntes-SIT:
           server: $KUBERNETES_MASTER
           token: $KUBERNETES_TOKEN
           insecure-skip-tls-verify: true
-          command: apply -f ./deploy.yml --namespace=$NSTEST
+          command: apply -f ./deploy.yml
       
       - kubectl:
           name: apply service
           server: $KUBERNETES_MASTER
           token: $KUBERNETES_TOKEN
           insecure-skip-tls-verify: true
-          command: apply -f ./service.yml --namespace=$NSTEST
+          command: apply -f ./service.yml
         
 
